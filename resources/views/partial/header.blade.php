@@ -1,3 +1,3 @@
-<header class="container">
-    this is header!
+<header class="container-md">
+    Train timetable
 </header>

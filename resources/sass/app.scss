@@ -7,6 +7,28 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-// body {
-//     font-family: 'Share Tech Mono';
-// }
+
+
+.custom-ul {
+    font-family: 'Share Tech Mono';
+
+    li {
+        background-color: rgb(255, 234, 0);
+    }
+}
+
+.custom-card {
+    background-color: rgb(99, 98, 98);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+    .custom-c-body {
+        background-color: rgb(20, 20, 20);
+        border-radius: 4px;
+
+        .custom-title {
+            color: rgb(255, 234, 0);
+            font-family: 'Share Tech Mono';
+
+        }
+    }
+}
