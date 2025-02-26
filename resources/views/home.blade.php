@@ -2,16 +2,16 @@
 
 @section('content')
 
-<div class="container-md">
+<div class="container">
 <div class="card custom-card">
-    <div class="card-body custom-c-body">
-        <ul class="list-unstyled row gap-2 justify-content-center custom-title">
+    <div class="card-body custom-c-body px-4">
+        <ul class="list-unstyled row  justify-content-between custom-title">
     
             <li class="col-2 text-uppercase fw-semibold fs-6">
                 train
             </li>
             <li class="col-1 text-uppercase fw-semibold fs-6">
-                n coach
+                code
             </li>
             <li class="col-2 text-uppercase fw-semibold fs-6">
                 from
@@ -31,24 +31,27 @@
             <li class="col-1 text-uppercase fw-semibold fs-6">
                 delete
             </li>
+            <li class="col-1 text-uppercase fw-semibold fs-6">
+                date
+            </li>
            
             
         </ul>
 
             @foreach ($trains as $train)
-
+            @php
+                
+                // dd($train);
+            @endphp    
             
             
-                <ul class="list-unstyled row gap-2 custom-ul justify-content-center">
+                <ul class="list-unstyled row  custom-ul justify-content-between">
 
-                    <li class="col-1">
+                    <li class="col-2">
                         {{$train['corporate']}}
                     </li>
                     <li class="col-1">
                         {{$train['code']}}
-                    </li>
-                    <li class="col-1">
-                        {{$train['coach']}}
                     </li>
                     <li class="col-2">
                         {{$train['departures']}}
@@ -62,13 +65,18 @@
                     <li class="col-1">
                         {{substr($train['arrives_time'], 0, 5)}}
                     </li>
-                    <li class="col-1">
-                        {{$train['on_time']}}
+                    <li class="col-1 mw-100">
+                        {{$train['on_time'] ? ' ' : 'Delay'}}
                     </li>
+                    <li class="col-1 mw-100" >
+                        {{$train['delete'] ? 'Delete' : ''}}
+                    </li> 
                     <li class="col-1">
-                        {{$train['delete'] ? 'Deleted' : ' '}}
-                    </li>
-                   
+                        @php
+                            $formatDate = date('d-m-Y', strtotime($train['date']));
+                        @endphp
+                        {{$formatDate}}
+                    </li>                 
                     
                 </ul>
                 
