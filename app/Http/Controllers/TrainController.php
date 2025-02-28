@@ -12,7 +12,7 @@ class TrainController extends Controller
 {
     public function index()
     {
-        $date = new DateTime('now');
+        $date = (new DateTime('now'))->format('Y-m-d');
         $trains = Train::where('date', '>=', $date)->orderBy('date', 'asc')->get();
         return view('home', compact('trains'));
     }
